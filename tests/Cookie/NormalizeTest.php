@@ -217,6 +217,14 @@ final class NormalizeTest extends TestCase {
 					'domain' => 'example.com',
 				],
 			],
+			'Attribute normalization: domain: domain should be converted to lowercase' => [
+				'attributes' => [
+					'domain' => 'EXAMPLE.COM',
+				],
+				'expected'   => [
+					'domain' => 'example.com',
+				],
+			],
 
 			// Default case logic.
 			'Attribute normalization: anything else is returned unchanged - string name, string value' => [

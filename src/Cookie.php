@@ -361,7 +361,7 @@ class Cookie {
 					$value = substr($value, 1);
 				}
 
-				return $value;
+				return strtolower($value);
 
 			default:
 				return $value;
