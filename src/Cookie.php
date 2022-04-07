@@ -311,6 +311,10 @@ class Cookie {
 					return $value;
 				}
 
+				if (!is_string($value)) {
+					return null;
+				}
+
 				$expiry_time = strtotime($value);
 				if ($expiry_time === false) {
 					return null;
@@ -322,6 +326,10 @@ class Cookie {
 				// Expiration parsing, as per RFC 6265 section 5.2.2
 				if (is_int($value)) {
 					return $value;
+				}
+
+				if (!is_string($value)) {
+					return null;
 				}
 
 				// Check that we have a valid age
@@ -340,7 +348,11 @@ class Cookie {
 
 			case 'domain':
 				// Domains are not required as per RFC 6265 section 5.2.3
-				if (empty($value)) {
+				if (!is_string($value)) {
+					return null;
+				}
+
+				if ($value === '') {
 					return null;
 				}
 
